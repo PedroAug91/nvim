@@ -3,7 +3,7 @@ return {
     config = function()
         require("esqueleto").setup({
             directories = {"~/.config/nvim/skeletons/"},
-            patterns = {"cpp"},
+            patterns = {"cpp", "c"},
             autouse = true
         })
     end
