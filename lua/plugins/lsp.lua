@@ -38,31 +38,8 @@ return {
                 "emmet_language_server",
                 "html",
                 "lua_ls",
+                "pyright",
                 "sqlls",
-            },
-            handlers = {
-                function(server_name) -- default handler (optional)
-
-                    require("lspconfig")[server_name].setup{
-                        capabilities = capabilities,
-                        on_attach = on_attach
-                    }
-                end,
-
-                ["lua_ls"] = function()
-                    local lspconfig = require("lspconfig")
-                    lspconfig.lua_ls.setup {
-                        capabilities = capabilities,
-                        settings = {
-                            Lua = {
-				    runtime = { version = "Lua 5.1" },
-                                diagnostics = {
-                                    globals = { "vim", "it", "describe", "before_each", "after_each" },
-                                }
-                            }
-                        }
-                    }
-                end,
             }
         })
 
@@ -77,7 +54,7 @@ return {
             mapping = cmp.mapping.preset.insert({
                 ['<C-j>'] = cmp.mapping.select_prev_item(cmp_select),
                 ['<C-k>'] = cmp.mapping.select_next_item(cmp_select),
-                ['<CR>'] = cmp.mapping.confirm({ select = true }),
+                ['<Tab>'] = cmp.mapping.confirm({ select = true }),
                 ["<C-Space>"] = cmp.mapping.complete(),
             }),
             sources = cmp.config.sources({

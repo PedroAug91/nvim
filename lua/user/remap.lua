@@ -50,3 +50,5 @@ nmap("<leader>gs", ":Neotree float git_status<cr>")
 nmap("<leader>cpp", "<cmd>!g++ -Wall % && ./a.out<cr>")
 nmap("<leader>cc", "<cmd>!gcc -Wall % && ./a.out<cr>")
 nmap("<leader>cs", "<cmd>!gcc -Wall % -lcs50 && ./a.out<cr>")
+
+nmap("<leader>ma", ":Mason<cr>")
