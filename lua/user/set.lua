@@ -1,4 +1,11 @@
 local set = vim.opt
+local g = vim.g
+
+g.floaterm_title = "Terminal"
+g.floaterm_width = 0.9
+g.floaterm_height = 0.9
+g.floaterm_autoclose = 2
+g.floaterm_titleposition = "center"
 
 set.nu = true
 set.relativenumber = true
@@ -7,7 +14,7 @@ set.scrolloff = 8
 
 set.ruler = false
 set.cmdheight = 1
-set.showmode = true
+set.showmode = false
 set.cursorline = true
 
 set.wrap = true

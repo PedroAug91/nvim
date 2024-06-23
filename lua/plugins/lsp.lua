@@ -36,6 +36,7 @@ return {
                 "docker_compose_language_service",
                 "dockerls",
                 "emmet_language_server",
+                "emmet_ls",
                 "html",
                 "lua_ls",
                 "pyright",

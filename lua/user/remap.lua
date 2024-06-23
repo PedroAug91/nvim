@@ -26,8 +26,6 @@ vmap("K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "<leader><leader>", function()vim.cmd("so")end)
 vim.keymap.set("n", "<leader>l", function()vim.cmd("Lazy home")end)
 vim.keymap.set("n", "<leader>md", function()vim.cmd("MarkdownPreviewToggle")end)
-vim.keymap.set("n", "<leader>vt", function()vim.cmd("VTerm")end)
-vim.keymap.set("n", "<leader>ht", function()vim.cmd("Term")end)
 
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
 -- vim.keymap.set("n", "gr", require("telescope.builtin").lsp_references, {})
@@ -44,6 +42,8 @@ nmap("<leader>=", "<C-w>=")
 -- nmap("<C-Right>", ":vertical resize +2<CR>")
 nmap("<C-j>", ":tabp<CR>")
 nmap("<C-k>", ":tabn<CR>")
+nmap("<leader>cl", ":FloatermNew <CR>")
+
 nmap("<C-n>", ":Neotree toggle=true reveal=true position=float<CR>")
 nmap("<leader>gs", ":Neotree float git_status<cr>")
 
