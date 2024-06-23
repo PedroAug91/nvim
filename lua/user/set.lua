@@ -16,6 +16,7 @@ set.ruler = false
 set.cmdheight = 1
 set.showmode = false
 set.cursorline = true
+set.showtabline = 2
 
 set.wrap = true
 set.tabstop = 4
