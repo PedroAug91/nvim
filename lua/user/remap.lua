@@ -47,8 +47,8 @@ nmap("<leader>cl", ":FloatermNew <CR>")
 nmap("<C-n>", ":Neotree toggle=true reveal=true position=float<CR>")
 nmap("<leader>gs", ":Neotree float git_status<cr>")
 
-nmap("<leader>cpp", "<cmd>!g++ -Wall % && ./a.out<cr>")
-nmap("<leader>cc", "<cmd>!gcc -Wall % && ./a.out<cr>")
-nmap("<leader>cs", "<cmd>!gcc -Wall % -lcs50 && ./a.out<cr>")
+nmap("<leader>cpp", ":FloatermNew --autoclose=0 g++ % -Wall -o %< && ./%<<CR>")
+nmap("<leader>cc", ":FloatermNew --autoclose=0 gcc % -Wall -o %< && ./%<<CR>")
+nmap("<leader>cs", ":FloatermNew --autoclose=0 gcc % -Wall -lcs50 -o %< && ./%<<CR>")
 
 nmap("<leader>ma", ":Mason<cr>")
