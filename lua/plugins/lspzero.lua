@@ -28,29 +28,6 @@ return {
             info = '»'
         })
 
-        require("lspconfig").intelephense.setup({}) -- Por algum motivo, essa desgraça só funciona se for assim...
-        require("mason").setup({})
-        require("mason-lspconfig").setup({
-            ensure_installed = {
-                "clangd",
-                "cssls",
-                "css_variables",
-                "denols",
-                "docker_compose_language_service",
-                "dockerls",
-                "emmet_language_server",
-                "html",
-                "lua_ls",
-                "pyright",
-                "sqlls"
-            },
-            handlers = {
-                function(server_name)
-                    require("lspconfig")[server_name].setup({})
-                end,
-            },
-        })
-
         local cmp = require("cmp")
         local cmp_format = require("lsp-zero").cmp_format({ details = true })
 
@@ -75,5 +52,35 @@ return {
                 ["<Tab>"] = cmp.mapping.confirm({ select = true }),
             }
         })
+
+        require("lspconfig").intelephense.setup({
+            root_dir = function ()
+                local current_path = vim.fn.expand('%:p:h')
+                return current_path
+            end
+        }) -- Por algum motivo, essa desgraça só funciona se for assim...
+
+        require("mason").setup({})
+        require("mason-lspconfig").setup({
+            ensure_installed = {
+                "clangd",
+                "cssls",
+                "css_variables",
+                "denols",
+                "docker_compose_language_service",
+                "dockerls",
+                "emmet_language_server",
+                "html",
+                "lua_ls",
+                "pyright",
+                "sqlls"
+            },
+            handlers = {
+                function(server_name)
+                    require("lspconfig")[server_name].setup({})
+                end,
+            },
+        })
+
     end
 }
