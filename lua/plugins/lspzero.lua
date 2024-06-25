@@ -13,8 +13,6 @@ return {
     config = function()
         local lsp_zero = require('lsp-zero')
 
-        require("lspconfig").intelephense.setup({}) -- Por algum motivo, essa desgraça só funciona se for assim...
-
         lsp_zero.on_attach(function(client, bufnr)
             lsp_zero.default_keymaps({ buffer = bufnr })
 
@@ -23,8 +21,6 @@ return {
             vim.keymap.set('n', '<leader>nn', function()vim.lsp.buf.rename()end, {buffer = bufnr})
         end)
 
-
-
         lsp_zero.set_sign_icons({
             error = '✘',
             warn = '▲',
@@ -32,6 +28,7 @@ return {
             info = '»'
         })
 
+        require("lspconfig").intelephense.setup({}) -- Por algum motivo, essa desgraça só funciona se for assim...
         require("mason").setup({})
         require("mason-lspconfig").setup({
             ensure_installed = {
