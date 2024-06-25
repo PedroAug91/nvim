@@ -28,7 +28,6 @@ return {
             "python",
             "c",
             "cpp",
-            "lua",
             "markdown",
             "markdown_inline",
             "dockerfile",
