@@ -17,8 +17,8 @@ return {
             lsp_zero.default_keymaps({ buffer = bufnr })
 
             -- Keymaps
-            vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references<cr>', {buffer = bufnr})
-            vim.keymap.set('n', '<leader>nn', function()vim.lsp.buf.rename()end, {buffer = bufnr})
+            vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references<cr>', { buffer = bufnr })
+            vim.keymap.set('n', '<leader>nn', function() vim.lsp.buf.rename() end, { buffer = bufnr })
         end)
 
         lsp_zero.set_sign_icons({
@@ -39,7 +39,6 @@ return {
                 "docker_compose_language_service",
                 "dockerls",
                 "emmet_language_server",
-                "emmet_ls",
                 "html",
                 "lua_ls",
                 "pyright",
