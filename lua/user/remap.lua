@@ -27,7 +27,6 @@ vim.keymap.set("n", "<leader><leader>", function()vim.cmd("so")end)
 vim.keymap.set("n", "<leader>l", function()vim.cmd("Lazy home")end)
 vim.keymap.set("n", "<leader>md", function()vim.cmd("MarkdownPreviewToggle")end)
 
-vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
 -- vim.keymap.set("n", "gr", require("telescope.builtin").lsp_references, {})
 
 nmap("<C-h>", "<C-w>h")

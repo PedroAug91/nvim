@@ -11,7 +11,7 @@ return {
         { "<leader>pf", "<cmd>Telescope find_files<cr>", desc = "find files" },
         { "<leader>ps", "<cmd>Telescope live_grep<cr>", desc = "find a string" },
         { "<leader>pg", "<cmd>Telescope git_branches<cr>", desc = "checkout branch" },
-        { "<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "find keymaps" },
+        { "<leader>pk", "<cmd>Telescope keymaps<cr>", desc = "find keymaps" },
     },
 }
 

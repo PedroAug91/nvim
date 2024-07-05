@@ -18,6 +18,7 @@ return {
 
             -- Keymaps
             vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references<cr>', { buffer = bufnr })
+            vim.keymap.set('n', 'gd', '<cmd>Telescope lsp_definitions<cr>', { buffer = bufnr })
             vim.keymap.set('n', '<leader>nn', function() vim.lsp.buf.rename() end, { buffer = bufnr })
         end)
 
@@ -53,12 +54,7 @@ return {
             }
         })
 
-        require("lspconfig").intelephense.setup({
-            root_dir = function ()
-                local current_path = vim.fn.expand('%:p:h')
-                return current_path
-            end
-        }) -- Por algum motivo, essa desgraça só funciona se for assim...
+        require("lspconfig").intelephense.setup({}) -- Por algum motivo, essa desgraça só funciona se for assim...
 
         require("mason").setup({})
         require("mason-lspconfig").setup({
@@ -79,6 +75,26 @@ return {
                 function(server_name)
                     require("lspconfig")[server_name].setup({})
                 end,
+
+                emmet_language_server = function ()
+                    require("lspconfig").emmet_language_server.setup({
+                        filetypes = {
+                            "css", "eruby", "html", "php",
+                            "javascript", "javascriptreact", "less",
+                            "sass", "scss", "pug", "typescriptreact"
+                        },
+
+                    })
+                end,
+
+                docker_compose_language_service = function ()
+                    require("lspconfig").docker_compose_language_service.setup({
+                        filetypes = {
+                            "yaml.docker-compose", "yml", "yaml",
+                            "docker-compose"
+                        }
+                    })
+                end
             },
         })
 
