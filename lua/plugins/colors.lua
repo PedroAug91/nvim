@@ -15,20 +15,3 @@ return {
         vim.cmd("colorscheme rose-pine-moon")
     end
 }
--- "ellisonleao/gruvbox.nvim",
--- priority = 1000,
--- config = function()
---     require("gruvbox").setup({
---         transparent_mode = true,
---         italic = {
---             strings = true,
---             emphasis = true,
---             comments = true,
---             operators = false,
---             folds = true,
---         },
---     })
--- 
---     vim.cmd("colorscheme gruvbox")
--- end,
--- #1c2021

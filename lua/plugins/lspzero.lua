@@ -54,26 +54,42 @@ return {
             }
         })
 
-        require("lspconfig").intelephense.setup({}) -- Por algum motivo, essa desgraça só funciona se for assim...
-
         require("mason").setup({})
         require("mason-lspconfig").setup({
             ensure_installed = {
                 "clangd",
                 "cssls",
                 "css_variables",
-                "denols",
                 "docker_compose_language_service",
                 "dockerls",
                 "emmet_language_server",
+                "jinja_lsp",
                 "html",
+                "intelephense",
                 "lua_ls",
                 "pyright",
-                "sqlls"
+                "sqlls",
+                "tsserver"
             },
             handlers = {
                 function(server_name)
                     require("lspconfig")[server_name].setup({})
+                end,
+
+                tsserver = function ()
+                    require("lspconfig").tsserver.setup({
+                        filetypes = {
+                            "javascript", "javascriptreact", "javascript.jsx",
+                            "typescript", "typescriptreact", "typescript.tsx",
+                            "html", "htmldjango"
+                        }
+                    })
+                end,
+
+                html = function ()
+                    require("lspconfig").html.setup({
+                        filetypes = {"html", "php","htmldjango"}
+                    })
                 end,
 
                 emmet_language_server = function ()
@@ -81,7 +97,8 @@ return {
                         filetypes = {
                             "css", "eruby", "html", "php",
                             "javascript", "javascriptreact", "less",
-                            "sass", "scss", "pug", "typescriptreact"
+                            "sass", "scss", "pug", "typescriptreact",
+                            "htmldjango"
                         },
 
                     })

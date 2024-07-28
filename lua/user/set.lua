@@ -1,6 +1,8 @@
 local set = vim.opt
 local g = vim.g
 
+g.mapleader = " "
+
 g.floaterm_title = "Terminal"
 g.floaterm_width = 0.9
 g.floaterm_height = 0.9
