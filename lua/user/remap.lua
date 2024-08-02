@@ -16,6 +16,8 @@ end
 
 -- Non plugin remaps
 
+vim.api.nvim_set_keymap('t', '<ESC>', '<C-\\><C-n>', { noremap = true, silent = true})
+
 imap("ii", "<ESC>")
 
 vmap("ii", "<ESC>")
@@ -38,13 +40,11 @@ nmap("<leader>l", ":Lazy home<CR>")
 
 nmap("<leader>md", ":MarkdownPreviewToggle<CR>")
 
-
-nmap("<C-n>", ":Neotree toggle=true reveal=true position=float<CR>")
-nmap("<leader>gs", ":Neotree float git_status<cr>")
-
 nmap("<leader>cl", ":FloatermToggle<CR>")
 nmap("<leader>cpp", ":FloatermNew --autoclose=0 g++ % -Wall -o %< && %<<CR>")
 nmap("<leader>cc", ":FloatermNew --autoclose=0 gcc % -Wall -o %< && %<<CR>")
 nmap("<leader>cs", ":FloatermNew --autoclose=0 gcc % -Wall -lcs50 -o %< && %<<CR>")
+nmap("<leader>gs", ":FloatermNew --height=1.0 --width=1.0 lazygit <CR>")
 
-nmap("<leader>ma", ":Mason<cr>")
+nmap("<leader>ma", ":Mason<CR>")
+
