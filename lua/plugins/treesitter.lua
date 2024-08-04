@@ -3,23 +3,41 @@ return {
         "nvim-treesitter/nvim-treesitter",
         event = { "BufReadPost", "BufNewFile" },
         build = ":TSUpdate",
-        config = function()
-            require("nvim-treesitter.configs").setup {
-                highlight = {
-                    enable = true,
-                    disable = {"htmldjango"}
+        opts = {
+            ensure_installed = {
+                "cpp", "c", "python",
+                "json5", "javascript", "json",
+                "typescript", "lua", "luadoc",
+                "php", "php_only", "phpdoc",
+                "htmldjango", "html", "css",
+                "dockerfile", "yaml", "sql",
+                "gitignore", "bash"
+            },
+            auto_install = true,
+            highlight = {
+                enable = true,
+                disable = {"htmldjango"}
+            },
+            indent = { enable = true },
+        },
+        config = function(_, opts)
+            ---@class ParserInfo[]
+            local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+            parser_config.blade = {
+                install_info = {
+                    url = "https://github.com/EmranMR/tree-sitter-blade",
+                    files = {
+                        "src/parser.c",
+                        -- 'src/scanner.cc',
+                    },
+                    branch = "main",
+                    generate_requires_npm = true,
+                    requires_generate_from_grammar = true,
                 },
-                indent = { enable = true },
-                ensure_installed = {
-                    "cpp", "c", "python",
-                    "json5", "javascript", "json",
-                    "typescript", "lua", "luadoc",
-                    "php", "php_only", "phpdoc",
-                    "htmldjango", "html", "css",
-                    "dockerfile", "yaml", "sql",
-                    "gitignore", "bash"
-                }
+                filetype = "blade",
             }
+
+            require("nvim-treesitter.configs").setup(opts)
         end,
     },
     {

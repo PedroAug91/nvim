@@ -19,7 +19,7 @@ return {
             -- Keymaps
             vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references<cr>', { buffer = bufnr })
             vim.keymap.set('n', 'gd', '<cmd>Telescope lsp_definitions<cr>', { buffer = bufnr })
-            -- vim.keymap.set('n', '<leader>nn', function() vim.lsp.buf.rename() end, { buffer = bufnr })
+            vim.keymap.set('n', '<leader>nn', function() vim.lsp.buf.rename() end, { buffer = bufnr })
         end)
 
         lsp_zero.set_sign_icons({
@@ -75,7 +75,11 @@ return {
                 function(server_name)
                     require("lspconfig")[server_name].setup({})
                 end,
-
+                intelephense = function ()
+                    require("lspconfig").intelephense.setup({
+                        filetypes = { "php", "php_only", "blade" }
+                    })
+                end,
                 tsserver = function ()
                     require("lspconfig").tsserver.setup({
                         filetypes = {
@@ -88,7 +92,7 @@ return {
 
                 html = function ()
                     require("lspconfig").html.setup({
-                        filetypes = {"html", "php","htmldjango"}
+                        filetypes = {"html", "php", "htmldjango", "blade"}
                     })
                 end,
 
@@ -98,7 +102,7 @@ return {
                             "css", "eruby", "html", "php",
                             "javascript", "javascriptreact", "less",
                             "sass", "scss", "pug", "typescriptreact",
-                            "htmldjango"
+                            "htmldjango", "blade"
                         },
 
                     })
